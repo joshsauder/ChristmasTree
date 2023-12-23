@@ -1,4 +1,4 @@
-Tree Example:
+Tree Examples:
       *
      *** 
     x*x*x
@@ -7,37 +7,45 @@ Tree Example:
  x*x*x*x*x*x
 x*x*x*x*x*x*x
 
+          *
+         *** 
+        x*x*x
+       x*x*x*x  
+      x*x*x*x*x
+     x*x*x*x*x*x
+    x*x*x*x*x*x*x
+   x*x*x*x*x*x*x*x
+  x*x*x*x*x*x*x*x*x
+ x*x*x*x*x*x*x*x*x*x
+x*x*x*x*x*x*x*x*x*x*x
+
 Content:
 Star:
 1 = 1
 2 = 3
 
-Tree:
+Body:
 3 = 5
 4 = 7
 5 = 9
 6 = 11
 7 = 13
 
-Tree = Level * 2 - 1
+Content = Level * 2 - 1
 
 Spaces
 Star:
 1 = 6
 2 = 5
 
-Tree:
+Body:
 3 = 4
 4 = 3
 5 = 2
 6 = 1
 7 = 0
 
-Star 
-1 = Size
-2 = Size - 2
-
-Tree = Size - level
+Spaces = Size - level
 
 
 

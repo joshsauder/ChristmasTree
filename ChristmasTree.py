@@ -1,49 +1,58 @@
 import sys
+import math
 
 def build_tree(size):
-    i = build_star(size) + 1
-    while i <= size:
+    level = build_star(size) + 1
+    while level <= size:
         # Add Spaces
-        line = print_spaces(size, i)
+        line = print_spaces(size, level)
         
-        # Add Content
-        j = 0
-        content_max = i * 2 - 1
-        
-        while (content_max > j):
-            if (j%2 == 0):
-                line += "x"
-            else:
-                line += "*"
-            j += 1
+        # Add Body
+        line = build_body(level, line)
         
         print(line)
+        level += 1
+
+def build_body(level, line):
+    i = 0
+    body_max = level * 2 - 1
+
+    while (body_max > i):
+        # Rotate use of x and *
+        if (i%2 == 0):
+            line += "x"
+        else:
+            line += "*"
         i += 1
+    return line
 
 def build_star(size):
-    star_size = size / 3
-    i = 1
-    while (i <= star_size):
-        line = print_spaces(size, i)
-        j = i * 2 - 1
-        while (j > 0):
+    star_size = math.floor(size / 4)
+    level = 1
+    while (level <= star_size):
+        # Add Spaces
+        line = print_spaces(size, level)
+        i = level * 2 - 1
+        # Add Body
+        while (i > 0):
             line += "*"
-            j -= 1
-        i += 1
+            i -= 1
+        level += 1
         print(line)
+    # Return star_size so build_tree knows where to start body
     return star_size
 
 def print_spaces(size, level):
     line = ""
     spaces = size - level
-    space_temp = 0
-    while (space_temp < spaces):
+    i = 0
+    while (i < spaces):
         line += " "
-        space_temp += 1
+        i += 1
     return line
     
 
 def main(size):
     build_tree(size)
 
-main(10)
+main(12)
